@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float maxTurnSpeed = 780.5f;
     float turnSpeed = 0f;
 
+    public bool locked = false;
+
     Rigidbody2D rb;
 
 
@@ -27,8 +29,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        PlayerRotation();
-        PlayerMove();
+        if (locked == false)
+        {
+            PlayerRotation();
+            PlayerMove();
+        }
     }
 
 
