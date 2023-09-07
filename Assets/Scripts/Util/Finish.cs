@@ -10,11 +10,12 @@ public class Finish : MonoBehaviour
 
     bool started = false;
 
-    [SerializeField] int timeListSize = 3;
+    [SerializeField] public int timeListSize = 3;
+
 
     public List<float> latestTimes = new List<float>();
 
-    CheckpointManager checkpointManager;
+    [SerializeField] CheckpointManager checkpointManager;
     GameObject player;
 
 
@@ -31,12 +32,14 @@ public class Finish : MonoBehaviour
     {
         if (collision.gameObject == player)
         {
-            started = true;
-
-            if (1 == 1)// Checkpointmanager.CheckClear()
+            if (checkpointManager.CheckFinish())
             {
+                started = true;
+
                 finishTime = Time.time;
                 ResetTimer();
+
+                checkpointManager.ResetCourse();
             }
         }   
     }

@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    List<Checkpoint> checkpoints = new List<Checkpoint>();
+
+
     void Start()
     {
-        
+        checkpoints = transform.GetComponentsInChildren<Checkpoint>().ToList();
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool CheckFinish()
     {
-        
+        foreach (var checkpoint in checkpoints)
+        {
+            if (checkpoint.activated)
+            {
+                return true;
+            }
+            else return false;
+        }
+        return false;
+    }
+
+    public void ResetCourse()
+    {
+        foreach (var checkpoint in checkpoints)
+        {
+            checkpoint.ResetCheckpoint();
+        }
     }
 }

@@ -12,6 +12,7 @@ public class TimerHud : MonoBehaviour
     [SerializeField] List<TextMeshProUGUI> latestTimers = new List<TextMeshProUGUI>();
 
     Finish finish;
+    bool full;
 
 
     private void Start()
@@ -27,7 +28,8 @@ public class TimerHud : MonoBehaviour
         FormatTimer(finish.bestTime, "BEST: ", bestTimer);
         for (int i = 0; i < latestTimers.Count; i++) 
         {
-            if (finish.latestTimes.Count == i + 1) FormatTimer(finish.latestTimes[i], "", latestTimers[i]);
+            if (finish.latestTimes.Count == i + 1 || full) FormatTimer(finish.latestTimes[i], "", latestTimers[i]);
+            if (finish.latestTimes.Count == finish.timeListSize) full = true;
         }
     }
 
