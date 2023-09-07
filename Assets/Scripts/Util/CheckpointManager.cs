@@ -7,6 +7,7 @@ public class CheckpointManager : MonoBehaviour
 {
 
     List<Checkpoint> checkpoints = new List<Checkpoint>();
+    int checkedPoints = 0;
 
 
     void Start()
@@ -18,17 +19,25 @@ public class CheckpointManager : MonoBehaviour
     {
         foreach (var checkpoint in checkpoints)
         {
-            if (checkpoint.activated)
+            if (checkpoint.activated == true)
             {
-                return true;
+                checkedPoints++;
             }
-            else return false;
+            else checkedPoints--;
         }
+        
+        checkedPoints = Mathf.Clamp(checkedPoints, 0, checkpoints.Count);
+        if (checkedPoints == checkpoints.Count) 
+        {
+            return true;
+        }
+
         return false;
     }
 
     public void ResetCourse()
     {
+        checkedPoints = 0;
         foreach (var checkpoint in checkpoints)
         {
             checkpoint.ResetCheckpoint();

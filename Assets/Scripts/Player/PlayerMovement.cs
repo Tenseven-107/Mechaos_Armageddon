@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = 0;
+
         if (locked == false)
         {
             PlayerRotation();
