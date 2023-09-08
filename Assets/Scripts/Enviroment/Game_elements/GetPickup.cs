@@ -29,7 +29,7 @@ public class GetPickup : MonoBehaviour
             Instantiate(pickup,transform.position, Quaternion.identity);
             source.Play();
             ps.Play();
-            scoreScript.AddScore(5);
+            scoreScript.AddScore(100);
             //ps.Stop();
 
             Debug.Log("test");
