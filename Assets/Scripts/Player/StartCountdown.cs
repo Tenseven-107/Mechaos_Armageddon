@@ -7,6 +7,7 @@ public class StartCountdown : MonoBehaviour
 {
     [SerializeField] int countdownTime = 3;
 
+    Countdown gameCountdown;
     PlayerMovement player;
     TextMeshProUGUI text;
 
@@ -18,6 +19,9 @@ public class StartCountdown : MonoBehaviour
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         player = playerObj.GetComponent<PlayerMovement>();
         player.locked = true;
+
+        GameObject countObj = GameObject.FindGameObjectWithTag ("Countdown");
+        gameCountdown = countObj.GetComponent<Countdown>();
 
         StartCoroutine(countdown());
     }
@@ -35,6 +39,8 @@ public class StartCountdown : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         text.enabled = false;
+
+        gameCountdown.StartCountdown();
 
         yield break;
     }

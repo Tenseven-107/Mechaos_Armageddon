@@ -61,6 +61,12 @@ public class Finish : MonoBehaviour
         currentTime = 0f;
     }
 
+
+    public void StopTimer()
+    {
+        started = false;
+    }
+
     private void Update()
     {
         if (started == true) currentTime = Time.time - finishTime;

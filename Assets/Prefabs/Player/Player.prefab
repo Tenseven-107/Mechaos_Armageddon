@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 8946634522168370354}
   - component: {fileID: 8946634522168370355}
   - component: {fileID: 8946634522168370352}
-  - component: {fileID: 2164834892963807602}
+  - component: {fileID: 3968612321642122791}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -763,7 +763,7 @@ MonoBehaviour:
   turnAcceleration: 6.4
   maxTurnSpeed: 780.5
   locked: 0
---- !u!114 &2164834892963807602
+--- !u!114 &3968612321642122791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -772,23 +772,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8946634522168370359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df511a5c9514e5f47878c4fbce3ccb39, type: 3}
+  m_Script: {fileID: 11500000, guid: cd2139c1ef0140e44979dd279f6b2297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
-  maxHP: 3
-  team: 0
   godmode: 0
-  invincible: 0
   iFrameTime: 1
-  deactivate: 0
   sprite: {fileID: 8946634521440203291}
-  deathEffect: {fileID: 0}
-  anims: {fileID: 0}
-  juice: 0
-  hitstopTime: 0
-  screenshakeTime: 0
-  screenshakeIntensity: 0
+  juice: 1
+  hitstopTime: 0.07
+  screenshakeTime: 0.2
+  screenshakeIntensity: 0.5
 --- !u!1 &8946634522392799430
 GameObject:
   m_ObjectHideFlags: 0
